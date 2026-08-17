@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>CoachZ</title>
+<title>Fitness Buddy</title>
 <meta name="theme-color" content="#0e1214">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="CoachZ">
+<meta name="apple-mobile-web-app-title" content="FitLog">
 </head>
 <body>
 <style>
@@ -352,13 +352,13 @@
 
 <div id="splash" aria-hidden="true">
   <img src="icon.svg" alt="" onerror="this.style.display='none'">
-  <div style="font-family:var(--fd-disp); font-weight:700; font-size:31px; letter-spacing:.03em">CoachZ</div>
+  <div style="font-family:var(--fd-disp); font-weight:700; font-size:31px; letter-spacing:.03em">Fitness Buddy</div>
   <div class="serifacc" style="font-size:19px; color:var(--ink2)">Show up. I’ll count.</div>
 </div>
 <div id="app">
   <header class="top">
     <div class="row" style="gap:10px"><img src="icon.svg" alt="" style="width:34px; height:34px; border-radius:9px" onerror="this.style.display='none'">
-    <div class="brand">CoachZ<small id="hello">personal tracker</small></div></div>
+    <div class="brand">Fitness Buddy<small id="hello">personal tracker</small></div></div>
     <button class="gear" onclick="openSettings()" aria-label="Settings">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1"/></svg>
     </button>
@@ -512,18 +512,12 @@ const DEF_EX=[
 ];
 /* starter routines (by exercise name) and lacto-veg quick foods */
 const SEED_RT=[
-  {name:'Push day', ex:['Bench press','Overhead press','Incline dumbbell press','Chest fly (dumbbell)','Lateral raise','Triceps pushdown']},
-  {name:'Pull day', ex:['Deadlift','Pull-ups','Seated cable row','Face pull','Barbell curl','Hammer curl']},
-  {name:'Legs day', ex:['Squat','Romanian deadlift','Leg press','Leg curl','Bulgarian split squat','Calf raise']},
-  {name:'Push: wrist-safe return', ex:['Incline dumbbell press','Chest fly (dumbbell)','Lateral raise','Overhead triceps extension','Triceps pushdown','Plank']},
-  {name:'Pull: wrist-safe return', ex:['Lat pulldown','Seated cable row','One-arm dumbbell row','Face pull','Reverse fly','Hammer curl']},
-  {name:'Legs: knee-safe return', ex:['Glute bridge','Romanian deadlift','Hip thrust','Leg curl','Calf raise','Wall sit (pain-free)']},
-  {name:'Rehab: knee & wrist (~15 min)', ex:['Wrist circles & prayer stretch','Straight-leg raise','Wall sit (pain-free)','Glute bridge','Ankle rocks','Deep squat hold']},
-  {name:'Conditioning: joint-friendly', ex:['Cycling','Kettlebell swing','Farmer’s carry','Glute bridge','Plank']},
-  {name:'Hyrox stations', ex:['Rowing (erg)','Wall balls','Burpee broad jump','Farmer’s carry','Sandbag lunges','Kettlebell swing']},
-  {name:'Mobility & flexibility (~20 min)', ex:['Cat-cow','Downward dog to cobra',"World's greatest stretch",'90/90 hip switch','Deep squat hold','Couch stretch','Standing hamstring fold','Shoulder dislocates (stick)','Cossack squat','Dead hang']},
-  {name:'Agility & conditioning', ex:['Jumping jacks','High knees','Mountain climbers','Cossack squat','Bear crawl','Burpees','Kettlebell swing']},
-  {name:'VO2max intervals (4×4)', ex:['VO2max 4×4 (bike)']}
+  {name:’Push: strength’, ex:[‘Bench press’,’Overhead press’,’Incline dumbbell press’,’Chest fly (dumbbell)’,’Lateral raise’,’Triceps pushdown’]},
+  {name:’Pull: strength’, ex:[‘Deadlift’,’Barbell row’,’Lat pulldown’,’Seated cable row’,’Face pull’,’Barbell curl’]},
+  {name:’Legs: strength’, ex:[‘Squat’,’Romanian deadlift’,’Leg press’,’Leg curl’,’Leg extension’,’Calf raise’]},
+  {name:’Push: endurance’, ex:[‘Bench press’,’Overhead press’,’Incline dumbbell press’,’Cable crossover’,’Triceps pushdown’,’Lateral raise’]},
+  {name:’Pull: endurance’, ex:[‘Lat pulldown’,’Barbell row’,’Seated cable row’,’Dumbbell curl’,’Hammer curl’,’Face pull’]},
+  {name:’Legs: endurance’, ex:[‘Goblet squat’,’Romanian deadlift’,’Leg press’,’Leg extension’,’Leg curl’,’Calf raise’]}
 ];
 const SEED_QK=[
   {name:'Whey (1 scoop)',kcal:130,p:24,c:4,f:2,fb:0},{name:'Casein (1 scoop)',kcal:120,p:24,c:4,f:1,fb:0},
@@ -537,8 +531,8 @@ const SEED_QK=[
 ];
 function defaults(){
   return {
-    settings:{name:'', unit:'kg', waterGoal:3000, calGoal:2600, proteinGoal:120, carbGoal:340, fatGoal:75,
-      rest:90, fiberGoal:30, height:(PUB?'':'176'), goalWeight:(PUB?'':'68'), waterRemind:true, waterEvery:75, workoutRemind:'',
+    settings:{name:'', unit:'kg', waterGoal:3000, calGoal:2200, proteinGoal:150, carbGoal:340, fatGoal:75,
+      rest:90, fiberGoal:30, height:176, goalWeight:68, waterRemind:true, waterEvery:75, workoutRemind:'',
       sleepRemind:'22:30', sleepGoal:8, breathGoal:15, theme:'dark'},
     exercises: DEF_EX.map(function(e,i){ return {id:'ex'+i, name:e[0], group:e[1]}; }),
     routines:[], sessions:[], active:null,
@@ -799,19 +793,19 @@ function seedV7(){
   });
   save();
 }
-/* v6: default weekly plan (injury-safe comeback schedule) */
+/* v6: default weekly plan (PPL split) */
 function seedV6(){
   if(PUB){ S.seedV6=true; return; }
   if(S.seedV6) return; S.seedV6=true;
   if(!S.plan || !Object.keys(S.plan).some(function(k){return S.plan[k];})){
     const byName=function(n){ const r=S.routines.find(function(x){return x.name===n;}); return r? r.id : ''; };
     S.plan={
-      1: byName('Push: wrist-safe return'),
-      2: byName('Rehab: knee & wrist (~15 min)'),
-      3: byName('Pull: wrist-safe return'),
-      4: byName('Conditioning: joint-friendly'),
-      5: byName('Legs: knee-safe return'),
-      6: byName('Mobility & flexibility (~20 min)'),
+      1: byName('Push: strength'),
+      2: byName('Pull: strength'),
+      3: byName('Legs: strength'),
+      4: byName('Push: endurance'),
+      5: byName('Pull: endurance'),
+      6: byName('Legs: endurance'),
       0: ''
     };
   }
@@ -955,7 +949,7 @@ function seedV17(){
 /* Re-enter the Monday 10 August push session, which the old edit-then-discard
    path destroyed before that path was made non-destructive. Nothing can recover
    the original, so this is the workout as it was prescribed and completed:
-   the comeback loads for 'Push: wrist-safe return', every set at the top of the
+   the loading targets for 'Push: strength', every set at the top of the
    rep range and marked easy. Numbers are hardcoded rather than recomputed at
    boot so the seed cannot drift with whenever it happens to run. */
 function seedV19(){
@@ -982,11 +976,11 @@ function seedV19(){
   if(plank) ex.push({exId:plank, sets:[{r:20,done:true,e:'ok'},{r:20,done:true,e:'ok'},{r:20,done:true,e:'ok'}]});
   if(!ex.length) return;
   /* same arithmetic finishSession uses: w*r over every non-warm-up set, so the
-     timed plank contributes nothing. No PRs — these comeback loads are far
+     timed plank contributes nothing. No PRs — these loading targets are conservative
      under the old bests, and holdBest(Plank) is 0 so 20s is not a record. */
   let vol=0;
   ex.forEach(function(e){ e.sets.forEach(function(s){ vol += (+s.w||0)*(+s.r||0); }); });
-  S.sessions.push({id:uid(), name:'Push: wrist-safe return', date:DATE,
+  S.sessions.push({id:uid(), name:'Push: strength', date:DATE,
     dur:2700, vol:vol, ex:ex, prs:[]});   /* duration not recorded at the time; 45 min is an estimate */
   S.sessions.sort(function(x,y){ return x.date<y.date?-1:1; });
   save();
@@ -1097,12 +1091,43 @@ function seedV23(){
   save();
 }
 
+/* v24: FitLog customization — strip personal data, fresh PPL, fat-loss defaults */
+function seedV24(){
+  if(PUB){ S.seedV24=true; return; }
+  if(S.seedV24) return; S.seedV24=true;
+  /* wipe personal seed data from prior installs (no-op if tables already empty) */
+  if(S.sessions) S.sessions=[];
+  if(S.weights) S.weights=[];
+  if(S.breaks) S.breaks=[];
+  if(S.reminders) S.reminders=[];
+  if(S.supps) S.supps=[];
+  if(S.myFoods) S.myFoods=[];
+  if(S.skipped) S.skipped=[];
+  if(S.plan) S.plan={};
+  if(S.settings) S.settings.calGoal=2200;
+  if(S.settings) S.settings.proteinGoal=150;
+  if(S.settings) S.settings.height=176;
+  if(S.settings) S.settings.goalWeight=68;
+  /* re-seed plan via new PPL routines */
+  const byName=function(n){ const r=S.routines.find(function(x){return x.name===n;}); return r? r.id : ''; };
+  S.plan={
+    1: byName('Push: strength'),
+    2: byName('Pull: strength'),
+    3: byName('Legs: strength'),
+    4: byName('Push: endurance'),
+    5: byName('Pull: endurance'),
+    6: byName('Legs: endurance'),
+    0: ''
+  };
+  save();
+}
+
 /* ============ migration runner ============
    Ordered and append-only — this list IS the execution order (it preserves
    the historical file order the app shipped with). Each step stays
    internally idempotent via its S.seedV* flag, so old and new installs
    converge. To add a migration: define seedV<n> above, append it here. */
-const SCHEMA=23;
+const SCHEMA=24;
 /* Snapshot the store as it was BEFORE this build's migrations touch it, so a bad
    upgrade is recoverable instead of permanent. Written once per schema bump. */
 (function(){
@@ -1114,7 +1139,7 @@ const SCHEMA=23;
   }catch(e){}
 })();
 [seedV2, seedV3, seedV4, seedV8, seedV9, seedV5, seedV7, seedV6,
- seedV10, seedV12, seedV13, seedV11, seedV14, seedV15, seedV16, seedV17, seedV19, seedV20, seedV21, seedV22, seedV23].forEach(function(step){ step(); });
+ seedV10, seedV12, seedV13, seedV11, seedV14, seedV15, seedV16, seedV17, seedV19, seedV20, seedV21, seedV22, seedV23, seedV24].forEach(function(step){ step(); });
 /* Persist the stamp explicitly. It used to ride along on whatever happened to
    call save() next, which made both the migration guards and the pre-upgrade
    snapshot depend on timing rather than intent. */
@@ -1345,11 +1370,10 @@ const PROGRAM= PUB ? {start:null, phases:[
   {w:4,   name:'Phase 1: Foundation', desc:'Habits first: three sessions a week at easy loads, full range of motion, water and sleep dialled in. Exit test: four consistent weeks.'},
   {w:16,  name:'Phase 2: Build', desc:'Progressive overload. Chase the amber targets, grow your cardio base, hit protein daily. Exit test: visibly stronger across twelve weeks.'},
   {w:999, name:'Phase 3: Perform', desc:'Train for something: a race, a number, a photo. PRs, a deload every 6–8 weeks, and a streak that never dies.'}
-]} : {start:'2026-08-09', phases:[
-  {w:4,  name:'Phase 0: Rebuild', desc:'Daily rehab block, the three return routines, daily breathwork, sleep by 11. Exit test: one fully pain-free week + a brisk 30-minute walk feeling easy.'},
-  {w:12, name:'Phase 1: Base', desc:'Run/walk intervals 3×/week, strength rebuilt to ~80% of May weights, full Push/Pull/Legs returns. Exit test: 5 km continuous run and squat 50×8, both pain-free.'},
-  {w:20, name:'Phase 2: Hyrox strength', desc:'Runs grow to 6–8 km with one weekly tempo. Hyrox stations once a week: wall balls light, burpee broad jumps low volume. Exit test: 8 km easy run, 50 unbroken wall balls.'},
-  {w:32, name:'Phase 3: Simulation', desc:'Weekly bricks (1 km run + station + 1 km run), half-simulation ~week 26, full simulation ~week 30, then enter the race.'}
+]} : {start:'2026-08-17', phases:[
+  {w:4,  name:'Phase 1: Foundation', desc:'Build the habit: full-body sessions, dial in form, hit protein and water targets daily. Add 10 min cardio after each session. Exit test: 4 consistent weeks of 6-day training.'},
+  {w:12, name:'Phase 2: Build', desc:'6-day PPL split: strength days (6–10 reps) and endurance days (12–18 reps) with built-in cardio finishers. Progressive overload every session. Weekly volume climbs 10% per week.'},
+  {w:24, name:'Phase 3: Peak', desc:'PR pushes on strength days, higher-rep endurance work, longer cardio blocks (15–20 min). Deload every 6–8 weeks. On track for your November target.'}
 ]};
 function programWeek(){
   const startD = PUB ? (S.programStart||today()) : PROGRAM.start;
@@ -1363,7 +1387,7 @@ function currentPhase(){
 }
 function phaseInfo(){
   const wk=programWeek(), cur=currentPhase();
-  let from=1, h='<h3>'+(PUB?'Your training journey':'Your Hyrox comeback')+'</h3><p class="tiny muted" style="margin:-6px 0 12px">Week '+wk+' since '+(PUB?'you started':'restart')+' ('+fmtD(PUB?(S.programStart||today()):PROGRAM.start)+')</p>';
+  let from=1, h='<h3>'+(PUB?'Your training journey':'Your 6-day split')+'</h3><p class="tiny muted" style="margin:-6px 0 12px">Week '+wk+' since '+(PUB?'you started':'restart')+' ('+fmtD(PUB?(S.programStart||today()):PROGRAM.start)+')</p>';
   PROGRAM.phases.forEach(function(p){
     const on=p.name===cur.name;
     h+='<div style="border-left:3px solid '+(on?'var(--wk)':'var(--line)')+'; padding:2px 0 2px 12px; margin-bottom:14px'+(on?'':'; opacity:.65')+'">'+
@@ -1380,7 +1404,7 @@ function round25(x){ return Math.round(x/2.5)*2.5; }
    three sessions rather than a single top set, so a session that fell apart
    and one that was comfortable no longer look identical. */
 
-const RXLABEL={up:'↑', deload:'↓', reps:'→', comeback:'⟲', first:'•', progress:'↑', steady:'→', hold:'=', intervals:'⚡'};
+const RXLABEL={up:'↑', deload:'↓', reps:'→', style:'⟲', first:'•', progress:'↑', steady:'→', hold:'=', intervals:'⚡'};
 /* One banner explaining any readiness hold, so a lighter day is never a
    mystery. Returns '' when nothing is being held back. */
 function readinessBanner(){
@@ -1547,10 +1571,10 @@ function prescribe(exId){
     if(tmd){
       const b=Math.max.apply(null,last.sets.map(function(s){return +s.r||0;}));
       return {sets:mk('', Math.max(10,Math.round(b*0.6/5)*5)),
-        why:gap+' days off, rebuild the hold at about 60%', tag:'comeback'};
+        why:gap+' days off, rebuild the hold at about 60%', tag:'return'};
     }
     return {sets:mk(topW? Math.max(incFor(exId), roundTo(topW*0.6, incFor(exId))) : '', sc.hi),
-      why:gap+' days off, rebuild at about 60% and earn it back', tag:'comeback'};
+      why:gap+' days off, rebuild at about 60% and earn it back', tag:'return'};
   }
 
   if(tmd){
@@ -2696,7 +2720,7 @@ function shareWeek(ws){
     const g=x.createLinearGradient(0,0,1080,0); g.addColorStop(0,'#ffc76e'); g.addColorStop(1,'#f08a2b');
     x.fillStyle=g; x.fillRect(0,0,1080,14);
     x.fillStyle='#f2a03d'; x.font='700 58px Oswald'; x.textAlign='left';
-    x.fillText('COACHZ', 72, 128);
+    x.fillText('FITLOG', 72, 128);
     x.fillStyle='#93a6b0'; x.font='italic 42px "Instrument Serif"';
     x.fillText('Week of '+fmtD(ws)+' – '+fmtD(we), 72, 190);
     const stats=[[String(cur.ses),'WORKOUTS'],[Math.round(cur.vol).toLocaleString(),'KG LIFTED'],[String(cur.pr),'RECORDS']];
@@ -2734,14 +2758,14 @@ function shareWeek(ws){
     });
     x.fillText(line.trim(), 72, y);
     x.fillStyle='#5c6d76'; x.font='500 28px Oswald';
-    x.fillText('TRACKED ON COACHZ', 72, 1270);
+    x.fillText('TRACKED ON FITLOG', 72, 1270);
     cv.toBlob(function(blob){
-      const file=new File([blob], 'coachz-week.png', {type:'image/png'});
+      const file=new File([blob], 'fitlog-week.png', {type:'image/png'});
       if(navigator.canShare && navigator.canShare({files:[file]})){
-        navigator.share({files:[file], title:'My CoachZ week'}).catch(function(){});
+        navigator.share({files:[file], title:'My Fitness Buddy week'}).catch(function(){});
       } else {
         const a=document.createElement('a');
-        a.href=URL.createObjectURL(blob); a.download='coachz-week.png';
+        a.href=URL.createObjectURL(blob); a.download='fitlog-week.png';
         document.body.appendChild(a); a.click(); a.remove();
         toast('Week card downloaded');
       }
@@ -5164,7 +5188,7 @@ function openSettings(){
       ((S.trash&&S.trash.length)? ' <span class="muted num">'+S.trash.length+'</span>':'')+'</button>'+
     (snapshotMeta()? '<button class="btn ghost wide" style="margin-top:10px" onclick="restoreSnapshot()">⏪ Restore pre-update snapshot <span class="muted tiny">'+fmtD(isoOf(snapshotMeta().at))+'</span></button>':'')+
     '<button class="btn danger wide" style="margin-top:10px" onclick="resetAll()">Erase all data</button>'+
-    '<button class="btn ghost wide" style="margin-top:10px" onclick="aboutSheet()">About CoachZ · privacy</button>'+
+    '<button class="btn ghost wide" style="margin-top:10px" onclick="aboutSheet()">About Fitness Buddy · privacy</button>'+
     '<p class="tiny muted" style="margin-top:14px">All data lives only on this device (browser storage). Export a backup now and then.</p>');
 }
 function addReminder(){
@@ -5183,12 +5207,12 @@ function delReminder(id){
   save(); openSettings();
 }
 function aboutSheet(){
-  openSheet('<h3>About CoachZ</h3>'+
+  openSheet('<h3>About Fitness Buddy</h3>'+
     '<p class="small" style="color:var(--ink2); line-height:1.6">Version '+APP_VER+' · a personal health coach that lives entirely on your phone.</p>'+
     '<div class="tiny muted" style="font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin:14px 0 6px">Privacy</div>'+
-    '<p class="small" style="color:var(--ink2); line-height:1.6">All of your data (workouts, food, weight, photos, everything) is stored only in this device’s browser storage. CoachZ has no accounts, no servers, no analytics, and never transmits your data anywhere. Backups exist only as files you export yourself. <a href="privacy.html" target="_blank" rel="noopener">Full privacy policy</a></p>'+
+    '<p class="small" style="color:var(--ink2); line-height:1.6">All of your data (workouts, food, weight, photos, everything) is stored only in this device’s browser storage. Fitness Buddy has no accounts, no servers, no analytics, and never transmits your data anywhere. Backups exist only as files you export yourself. <a href="privacy.html" target="_blank" rel="noopener">Full privacy policy</a></p>'+
     '<div class="tiny muted" style="font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin:14px 0 6px">Disclaimer</div>'+
-    '<p class="small" style="color:var(--ink2); line-height:1.6">CoachZ provides general fitness and nutrition information, not medical advice. Consult a qualified physician before starting any exercise or diet program, especially with an injury, medical condition, or pregnancy. Stop any exercise that causes pain.</p>'+
+    '<p class="small" style="color:var(--ink2); line-height:1.6">Fitness Buddy provides general fitness and nutrition information, not medical advice. Consult a qualified physician before starting any exercise or diet program, especially with an injury, medical condition, or pregnancy. Stop any exercise that causes pain.</p>'+
     '<p class="tiny muted" style="margin-top:14px">Contact: malay@growleads.io</p>');
 }
 function saveSettings(){
@@ -5230,7 +5254,7 @@ function exportData(){
   const blob=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download='coachz-backup-'+today()+'.json';
+  a.download='fitlog-backup-'+today()+'.json';
   document.body.appendChild(a); a.click(); a.remove();
   S.lastBackup=today(); save();
   toast('Backup downloaded');
@@ -5250,7 +5274,7 @@ function importData(inp){
       delete S.seedV16; seedV16();
       delete S.seedV17; seedV17();
       save(); closeSheet(); render(); toast('Backup restored');
-    }catch(e){ toast('That file is not a CoachZ backup'); }
+    }catch(e){ toast('That file is not a Fitness Buddy backup'); }
   };
   rd.readAsText(f);
 }
@@ -5305,7 +5329,7 @@ let OB={};
 function obStart(){
   openSheet('<div style="text-align:center; padding:16px 4px">'+
     '<img src="icon.svg" alt="" style="width:76px; height:76px; border-radius:18px" onerror="this.style.display=\'none\'">'+
-    '<div style="font-family:var(--fd-disp); font-weight:700; font-size:30px; margin-top:12px">CoachZ</div>'+
+    '<div style="font-family:var(--fd-disp); font-weight:700; font-size:30px; margin-top:12px">Fitness Buddy</div>'+
     '<div class="serifacc" style="font-size:20px; color:var(--ink2)">Show up. I’ll count.</div>'+
     '<p class="small" style="color:var(--ink2); margin:18px 0 22px; line-height:1.55">Your workouts, food, water, sleep and body, coached from one place. Everything stays on this phone. Two minutes of setup.</p>'+
     '<button class="btn primary wide" onclick="obProfile()">Set me up</button></div>');
@@ -5363,8 +5387,8 @@ function obFinish(planKey){
   if(w>0 && !S.weights.length) S.weights.push({date:today(), kg:w});
   /* friendlier public names for the joint-friendly routines */
   S.routines.forEach(function(r){
-    r.name=r.name.replace(': wrist-safe return',': joint-friendly')
-                 .replace(': knee-safe return',': joint-friendly (legs)')
+    r.name=r.name.replace(': strength',': joint-friendly')
+                 .replace(': strength',': joint-friendly (legs)')
                  .replace('Rehab: knee & wrist (~15 min)','Joint prep (~15 min)');
   });
   function rid(n){ const r=S.routines.find(function(x){return x.name===n;}); return r?r.id:''; }
