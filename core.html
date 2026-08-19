@@ -332,7 +332,7 @@
 <div id="splash" aria-hidden="true">
   <img src="icon.svg" alt="" onerror="this.style.display='none'">
   <div style="font-family:var(--fd-disp); font-weight:700; font-size:31px; letter-spacing:.03em">Fitness Buddy</div>
-  <div class="serifacc" style="font-size:19px; color:var(--ink2)">Show up. I’ll count.</div>
+  <div class="serifacc" style="font-size:19px; color:var(--ink2)">Show up. I'll count.</div>
 </div>
 <div id="app">
   <header class="top">
@@ -454,7 +454,7 @@
 
 <script>
 /* ============ state ============ */
-const PUB = !!window.PUBLIC_BUILD;
+const PUB = true;
 const APP_VER='2.2.0';
 const K='fitlog.v1';
 const DEF_EX=[
@@ -477,7 +477,7 @@ const DEF_EX=[
   ['Standing hamstring fold','Mobility'],['Shoulder dislocates (stick)','Mobility'],['Dead hang','Mobility'],
   ['Cossack squat','Mobility'],['Thoracic rotations','Mobility'],['Ankle rocks','Mobility'],['Glute bridge','Mobility'],
   ['Burpees','Conditioning'],['Mountain climbers','Conditioning'],['Jumping jacks','Conditioning'],
-  ['High knees','Conditioning'],['Kettlebell swing','Conditioning'],['Farmer’s carry','Conditioning'],
+  ['High knees','Conditioning'],['Kettlebell swing','Conditioning'],['Farmer's carry','Conditioning'],
   ['Bear crawl','Conditioning'],['Broad jump','Conditioning'],
   ['Rowing (erg)','Cardio'],['SkiErg','Cardio'],
   /* VO2max intervals, one per modality: bike km and SkiErg metres are not
@@ -491,12 +491,12 @@ const DEF_EX=[
 ];
 /* starter routines (by exercise name) and lacto-veg quick foods */
 const SEED_RT=[
-  {name:’Push: strength’, ex:[‘Bench press’,’Overhead press’,’Incline dumbbell press’,’Chest fly (dumbbell)’,’Lateral raise’,’Triceps pushdown’]},
-  {name:’Pull: strength’, ex:[‘Deadlift’,’Barbell row’,’Lat pulldown’,’Seated cable row’,’Face pull’,’Barbell curl’]},
-  {name:’Legs: strength’, ex:[‘Squat’,’Romanian deadlift’,’Leg press’,’Leg curl’,’Leg extension’,’Calf raise’]},
-  {name:’Push: endurance’, ex:[‘Bench press’,’Overhead press’,’Incline dumbbell press’,’Cable crossover’,’Triceps pushdown’,’Lateral raise’]},
-  {name:’Pull: endurance’, ex:[‘Lat pulldown’,’Barbell row’,’Seated cable row’,’Dumbbell curl’,’Hammer curl’,’Face pull’]},
-  {name:’Legs: endurance’, ex:[‘Goblet squat’,’Romanian deadlift’,’Leg press’,’Leg extension’,’Leg curl’,’Calf raise’]}
+  {name:'Push: strength', ex:['Bench press','Overhead press','Incline dumbbell press','Chest fly (dumbbell)','Lateral raise','Triceps pushdown']},
+  {name:'Pull: strength', ex:['Deadlift','Barbell row','Lat pulldown','Seated cable row','Face pull','Barbell curl']},
+  {name:'Legs: strength', ex:['Squat','Romanian deadlift','Leg press','Leg curl','Leg extension','Calf raise']},
+  {name:'Push: endurance', ex:['Bench press','Overhead press','Incline dumbbell press','Cable crossover','Triceps pushdown','Lateral raise']},
+  {name:'Pull: endurance', ex:['Lat pulldown','Barbell row','Seated cable row','Dumbbell curl','Hammer curl','Face pull']},
+  {name:'Legs: endurance', ex:['Goblet squat','Romanian deadlift','Leg press','Leg extension','Leg curl','Calf raise']}
 ];
 const SEED_QK=[
   {name:'Whey (1 scoop)',kcal:130,p:24,c:4,f:2,fb:0},{name:'Casein (1 scoop)',kcal:120,p:24,c:4,f:1,fb:0},
@@ -1223,34 +1223,34 @@ function closeSheet(){
 
 /* ============ daily quote + coach fact ============ */
 const QUOTES=[
-'You don’t have to be extreme, just consistent.',
+'You don't have to be extreme, just consistent.',
 'Discipline is choosing what you want most over what you want now.',
 'A one-hour workout is 4% of your day.',
 'It never gets easier. You get stronger.',
 'Little by little, a little becomes a lot.',
 'You are one workout away from a better mood.',
 'Motivation gets you started. Habit keeps you going.',
-'Take care of your body. It’s the only place you have to live.',
+'Take care of your body. It's the only place you have to live.',
 'Slow progress is still progress.',
-'The best project you’ll ever work on is you.',
+'The best project you'll ever work on is you.',
 'Fall in love with the process and the results will come.',
 'What seems impossible today will one day be your warm-up.',
-'Don’t count the days. Make the days count.',
+'Don't count the days. Make the days count.',
 'Showing up is the whole battle.',
 'Rest days build muscle. Guilt builds nothing.',
-'Compare only with yesterday’s you.',
+'Compare only with yesterday's you.',
 'A river cuts through rock by persistence, not power.',
 'Your body hears everything your mind says.',
-'Strength is built in the reps you didn’t feel like doing.',
+'Strength is built in the reps you didn't feel like doing.',
 'Energy creates energy. Start moving.',
 'The wedding photos are being taken now, in the gym.',
-'Trust the boring weeks. They’re the ones that work.',
+'Trust the boring weeks. They're the ones that work.',
 'Your future self is watching through your memories.',
 'Champions train. Everyone else waits for motivation.'];
 const TIPS=[
 'Creatine works by saturation, not timing. The daily tick matters more than the clock.',
 'Protein within ~2 hours after training gives a small but real edge.',
-'In Jaipur’s dry heat you dehydrate without visible sweat. Sip before you feel thirsty.',
+'In Jaipur's dry heat you dehydrate without visible sweat. Sip before you feel thirsty.',
 'Muscle is built during sleep. The gym only sends the signal.',
 'A 10-minute walk after meals blunts the blood-sugar spike from rice and rotis.',
 'Chai without sugar saves ~45 kcal a cup, so three cups a day is a laddu a week.',
@@ -1269,8 +1269,8 @@ const TIPS=[
 'Late screens delay melatonin ~30 minutes. The 22:30 wind-down is physiology.',
 'A planned deload every 6–8 weeks makes you stronger, not weaker.',
 'Make the exhale longer than the inhale. That ratio, not the length, is what flips you into recovery.',
-'Wall balls test breathing more than muscles. That’s why Hyrox loves them.',
-'Magnesium at night improves sleep quality. Watch your “woke rested” count.',
+'Wall balls test breathing more than muscles. That's why Hyrox loves them.',
+'Magnesium at night improves sleep quality. Watch your "woke rested" count.',
 'Volume drives muscle; intensity drives strength; consistency drives both.'];
 function dayIdx(){ return Math.floor(new Date(today()+'T12:00:00').getTime()/86400000); }
 
@@ -1298,7 +1298,7 @@ const PROTO_ALIASES=[
   ['cat-cow','Cat-cow'],
   ['dead bugs','Straight-leg raise'],
   ['cobra','Downward dog to cobra'],
-  ['child’s pose','Downward dog to cobra'],
+  ['child's pose','Downward dog to cobra'],
   ['leg swings','Straight-leg raise'],
   ['push-ups','Push-ups'],
   ['arm circles','Shoulder dislocates (stick)'],
@@ -1325,7 +1325,7 @@ function protoList(txt){
 }
 const CD_BY_GROUP={
   Chest:'Doorway chest stretch 40s/side',
-  Back:'Lat stretch on the rack 40s/side · child’s pose 45s',
+  Back:'Lat stretch on the rack 40s/side · child's pose 45s',
   Legs:'Quad, hamstring and couch stretch 45s each',
   Shoulders:'Cross-body stretch 30s/side',
   Arms:'Wrist flexor stretch 30s/side, protect that wrist',
@@ -1559,7 +1559,7 @@ function prescribe(exId){
   if(tmd){
     const b=Math.max.apply(null,last.sets.map(function(s){return +s.r||0;}));
     const rdT=readiness();
-    if(rdT.hold) return {sets:mk('', b), why:'match last time’s '+b+'s rather than pushing it: '+rdT.reasons[0], tag:'hold', readiness:rdT};
+    if(rdT.hold) return {sets:mk('', b), why:'match last time's '+b+'s rather than pushing it: '+rdT.reasons[0], tag:'hold', readiness:rdT};
     if(last.sets.some(function(s){ return s.e==='hard'; }))
       return {sets:mk('', b), why:'last hold felt hard, so repeat '+b+'s clean before adding time', tag:'reps'};
     /* same doubling rule the weighted branch uses when every set felt easy */
@@ -1652,7 +1652,7 @@ const CUES={
   'Wall balls':'It is a squat plus a push, not an arm throw; hit the same spot every rep.',
   'Kettlebell swing':'A hip hinge, not a squat; arms are ropes; the hips snap, the glutes finish.',
   'Burpee broad jump':'Land soft with bent knees; step back instead of jumping back while the wrists heal.',
-  'Farmer’s carry':'Tall posture, packed shoulders, quick small steps; tight grip, neutral wrists.',
+  'Farmer's carry':'Tall posture, packed shoulders, quick small steps; tight grip, neutral wrists.',
   'Walking':'Nasal breathing only: recovery and aerobic engine in one.',
   'Treadmill run':'Easy pace, nasal breathing where possible; land soft, feet under the hips.',
   'Running (outdoor)':'Conversational pace; short quick steps, land under your hips, breathe through the nose on easy runs.',
@@ -1703,7 +1703,7 @@ const PATTERNS={
 };
 const PATTERN_STEPS={
   squat:['Feet shoulder-width, toes slightly out.','Sit the hips down and back; knees track over the toes.','Drive through the whole foot to stand tall.'],
-  hinge:['Soft knees, chest proud.','Push the hips straight back until the hamstrings load.','Squeeze the glutes to stand, don’t lift with the lower back.'],
+  hinge:['Soft knees, chest proud.','Push the hips straight back until the hamstrings load.','Squeeze the glutes to stand, don't lift with the lower back.'],
   hpush:['Shoulder blades pinched, feet planted.','Lower under control to the chest.','Press up and slightly back, wrists stacked straight.'],
   vpush:['Ribs down, glutes tight before the press.','Press until the arm finishes by your ear.','Lower under control back to the shoulders.'],
   vpull:['Start from active shoulders, not a dead hang.','Drive the elbows down toward the ribs.','Lower slowly; the way down builds the back.'],
@@ -1829,7 +1829,7 @@ Object.assign(PATTERNS, {
     '<polyline points="80,86 62,104" class="fs"/>'+
     '<polyline points="80,86 100,100 96,110" class="fs"/>'+
     '<polyline points="150,70 176,70" class="fa"/><polyline points="168,64 178,70 168,76" class="fa"/>'},
-  exwgs:{label:'World’s greatest stretch: deep lunge, then open the chest', svg:
+  exwgs:{label:'World's greatest stretch: deep lunge, then open the chest', svg:
     '<polyline points="46,110 62,80" class="fs"/>'+
     '<polyline points="62,80 92,110" class="fs"/>'+
     '<circle cx="62" cy="66" r="6" class="fs"/>'+
@@ -1960,7 +1960,7 @@ function skipMissed(d){
 function planEditor(){
   const days=[['1','Monday'],['2','Tuesday'],['3','Wednesday'],['4','Thursday'],['5','Friday'],['6','Saturday'],['0','Sunday']];
   openSheet('<h3>Weekly plan</h3>'+
-    '<p class="tiny muted" style="margin:-6px 0 12px">The Today screen suggests each day’s workout from this plan. When the knee and wrist have a fully pain-free week, swap the return routines for the full Push / Pull / Legs days.</p>'+
+    '<p class="tiny muted" style="margin:-6px 0 12px">The Today screen suggests each day's workout from this plan. When the knee and wrist have a fully pain-free week, swap the return routines for the full Push / Pull / Legs days.</p>'+
     days.map(function(d){
       const cur=(S.plan||{})[d[0]]||'';
       return '<div class="field"><label>'+d[1]+'</label><select data-plan="'+d[0]+'">'+
@@ -2317,7 +2317,7 @@ function delSupp(id){
 }
 function logSleepForm(){
   const cur=S.sleep[today()]||{};
-  openSheet('<h3>Log last night’s sleep</h3>'+
+  openSheet('<h3>Log last night's sleep</h3>'+
     '<div class="fields2">'+
     '<div class="field"><label for="slBed">In bed at</label><input id="slBed" type="time" value="'+(cur.bed||'23:00')+'"></div>'+
     '<div class="field"><label for="slWake">Woke at</label><input id="slWake" type="time" value="'+(cur.wake||'07:00')+'"></div></div>'+
@@ -2327,7 +2327,7 @@ function logSleepForm(){
     '<button class="btn wide" style="background:var(--sl); border-color:var(--sl); color:#101526" onclick="saveSleep()">Save</button>'+
     barStrip(function(d){return (S.sleep[d]||{}).hrs;}, +S.settings.sleepGoal||8, 'var(--sl)')+
     (cur.hrs?'<button class="btn ghost wide danger" style="margin-top:10px" onclick="delSleep()">Remove entry</button>':'')+
-    '<p class="tiny muted" style="margin-top:12px">Logged against this morning’s date. 7–9 hours is where muscle recovery actually happens.</p>');
+    '<p class="tiny muted" style="margin-top:12px">Logged against this morning's date. 7–9 hours is where muscle recovery actually happens.</p>');
 }
 /* ---------- protocols ----------
    Graded on published evidence rather than popularity. The headline finding is
@@ -2529,7 +2529,7 @@ function breathForm(){
     '<p class="tiny muted" style="margin:-6px 0 12px">Slow nasal inhale, longer exhale. Post-training or before bed.</p>'+
     /* the tile counts workout breathwork too — say so, or the empty field below
        invites logging the same minutes a second time */
-    (fromSes? '<div class="tiny" style="color:var(--br); margin-bottom:10px">'+fromSes+' min already counted from today’s workout</div>' : '')+
+    (fromSes? '<div class="tiny" style="color:var(--br); margin-bottom:10px">'+fromSes+' min already counted from today's workout</div>' : '')+
     '<div class="row wrap">'+[10,15,20,30].map(function(m){
       return '<button class="chip" onclick="addBreath('+m+')">+'+m+' min</button>';
     }).join('')+'</div>'+
@@ -2677,7 +2677,7 @@ function openReport(ws){
         cur.wDelta!==null? '<span class="muted">'+(cur.wDelta>0?'+':'')+cur.wDelta+' '+unit()+' within week</span>':'');
   const notes=coachNotes(cur,prv,adh);
   if(notes.length){
-    h+=sect('Coach’s notes');
+    h+=sect('Coach's notes');
     notes.forEach(function(x){ h+='<p class="small" style="margin:6px 0; color:var(--ink2)">· '+x+'</p>'; });
   }
   h+='<button class="btn primary wide" style="margin-top:14px" onclick="shareWeek(\''+ws+'\')">Share this week</button>';
@@ -2728,7 +2728,7 @@ function shareWeek(ws){
     if(cur.waHit) bits.push('WATER GOAL ×'+cur.waHit);
     if(cur.km) bits.push(cur.km+' KM');
     x.fillText(bits.join('   ·   ')||'THE WORK CONTINUES', 72, 790);
-    const q='“'+QUOTES[dayIdx()%QUOTES.length]+'”';
+    const q='"'+QUOTES[dayIdx()%QUOTES.length]+'"';
     x.fillStyle='#edf2f4'; x.font='italic 52px "Instrument Serif"';
     const words=q.split(' '); let line='', y=980;
     words.forEach(function(w2){
@@ -2857,7 +2857,7 @@ function renderToday(){
   h+=catchUpCard();
   /* ===== quote + coach fact ===== */
   const qi=dayIdx();
-  h+='<div class="card qcard" style="padding:16px 18px">“'+QUOTES[qi%QUOTES.length]+'”'+
+  h+='<div class="card qcard" style="padding:16px 18px">"'+QUOTES[qi%QUOTES.length]+'"'+
     '<div class="qtip">💡 '+TIPS[qi%TIPS.length]+'</div></div>';
   /* ===== metric tiles ===== */
   const kp=Math.min(1, ft.kcal/st.calGoal), ppr=Math.min(1, ft.p/st.proteinGoal);
@@ -3225,7 +3225,7 @@ function renderWorkout(){
   } else if(planRt){
     /* show the actual work, not just a name: what you're chasing today */
     const pst=routineStats(planRt.exIds), plast=lastDoneOf(planRt.name, planRt.exIds);
-    h+='<div class="tiny muted" style="font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px">Today’s plan</div>'+
+    h+='<div class="tiny muted" style="font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px">Today's plan</div>'+
        '<b style="font-size:18px">'+esc(planRt.name)+'</b>'+
        '<div class="row wrap" style="gap:6px; margin:7px 0 10px">'+groupChips(pst.groups)+'</div>';
     planRt.exIds.slice(0,3).forEach(function(exId){
@@ -3240,7 +3240,7 @@ function renderWorkout(){
     h+='<div class="rmeta" style="margin:9px 0 11px">'+
         (planRt.exIds.length>3? '+'+(planRt.exIds.length-3)+' more · ':'')+
         '~'+pst.mins+' min · '+pst.sets+' sets'+(plast? ' · last '+esc(agoTxt(plast.date)):'')+'</div>'+
-       '<button class="btn primary wide" onclick="startSession(\''+planRt.id+'\')">Start today’s workout</button>'+
+       '<button class="btn primary wide" onclick="startSession(\''+planRt.id+'\')">Start today's workout</button>'+
        '<div class="row" style="gap:8px; margin-top:8px">'+
        '<button class="btn ghost grow" onclick="previewRoutine(\''+planRt.id+'\')">Preview all</button>'+
        '<button class="btn ghost grow" onclick="startSession()">Empty workout</button></div>';
@@ -3603,7 +3603,7 @@ function sessionHTML(){
       '<li>Finish: 5 slow nasal breaths, recovery starts now</li></ul></details>';
   }
   h+='<button class="btn primary wide" style="margin-top:10px" onclick="finishSession()">Finish workout</button>'+
-     '<div class="tiny muted" style="text-align:center; margin-top:10px">Tick an empty set to auto-fill last time’s numbers · tap the set number for warm-up (W), or Z on cardio for zone 2</div>';
+     '<div class="tiny muted" style="text-align:center; margin-top:10px">Tick an empty set to auto-fill last time's numbers · tap the set number for warm-up (W), or Z on cardio for zone 2</div>';
   return h;
 }
 /* The HIIT timer already does exactly this job; preset it rather than making
@@ -3677,7 +3677,7 @@ function restPicker(exId){
     '<div class="row" style="margin-top:12px"><input type="number" id="exRestC" inputmode="numeric" placeholder="Custom seconds">'+
     '<button class="btn" onclick="setExRest(\''+exId+'\', +document.querySelector(\'#exRestC\').value)">Set</button></div>'+
     '<button class="btn ghost wide" style="margin-top:10px" onclick="setExRest(\''+exId+'\',0)">Use app default ('+fmtRest(S.settings.rest)+')</button>'+
-    '<p class="tiny muted" style="margin-top:12px">Starts automatically when you tick a set of this exercise. Vibrates each of the last 5 seconds so you’re ready before it rings.</p>');
+    '<p class="tiny muted" style="margin-top:12px">Starts automatically when you tick a set of this exercise. Vibrates each of the last 5 seconds so you're ready before it rings.</p>');
 }
 function setExRest(exId,s){
   const ex=S.exercises.find(function(x){return x.id===exId;}); if(!ex) return;
@@ -3861,7 +3861,7 @@ function historyHTML(){
       h+='<div class="small" style="margin-top:8px"><b>'+esc(exName(e.exId))+'</b> <span class="muted num">'+e.sets.map(function(t){return (t.wu?'W ':'')+fmtSet(t,g,tmd);}).join('  ')+'</span></div>';
     });
     if(s.prs&&s.prs.length) s.prs.forEach(function(p){ h+='<div class="tiny" style="margin-top:6px; color:var(--good)">🏆 '+esc(p.ex)+' · '+p.txt+'</div>'; });
-    if(s.note) h+='<div class="tiny muted" style="margin-top:8px">“'+esc(s.note)+'”</div>';
+    if(s.note) h+='<div class="tiny muted" style="margin-top:8px">"'+esc(s.note)+'"</div>';
     h+='<div class="row" style="gap:8px; margin-top:10px"><button class="btn sm" onclick="editSession(\''+s.id+'\')">Edit</button>'+
        '<button class="btn sm danger" onclick="delSession(\''+s.id+'\')">Delete</button></div></details>';
   });
@@ -4491,7 +4491,7 @@ function fdbSearch(q){
       '<span class="row" style="gap:8px"><span class="tiny muted num">'+f.kcal+' kcal · P'+f.p+'</span>'+
       (f.mine? '<button class="btn ghost sm danger" onclick="event.stopPropagation();delMyFood(\''+f.id+'\')">✕</button>':'')+'</span></div>';
   }).join('')
-  + '<div class="tiny" style="padding:8px 2px"><a href="#" style="color:var(--wk)" onclick="myFoodForm();return false">＋ Not here? Save “'+esc(FDQ)+'” as my food</a></div>';
+  + '<div class="tiny" style="padding:8px 2px"><a href="#" style="color:var(--wk)" onclick="myFoodForm();return false">＋ Not here? Save "'+esc(FDQ)+'" as my food</a></div>';
 }
 function fdbPick(i){
   FDITEM=FDRES[i]; if(!FDITEM) return;
@@ -4584,9 +4584,9 @@ function fdbAdd(){
   toast(e.name+': '+e.kcal+' kcal logged');
 }
 function myFoodForm(){
-  openSheet('<h3>Save a “my food”</h3>'+
+  openSheet('<h3>Save a "my food"</h3>'+
     '<p class="tiny muted" style="margin:-6px 0 12px">Saved permanently into your searchable database, and included in backups. Enter values per one unit (1 piece / 1 bowl / 1 glass).</p>'+
-    '<div class="field"><label for="mfName">Name (put the unit in it)</label><input id="mfName" value="'+esc(FDQ)+'" placeholder="e.g. Nani’s besan ladoo (1)"></div>'+
+    '<div class="field"><label for="mfName">Name (put the unit in it)</label><input id="mfName" value="'+esc(FDQ)+'" placeholder="e.g. Nani's besan ladoo (1)"></div>'+
     '<div class="fields2">'+
     '<div class="field"><label for="mfK">Calories</label><input id="mfK" type="number" inputmode="numeric" placeholder="0"></div>'+
     '<div class="field"><label for="mfP">Protein g</label><input id="mfP" type="number" inputmode="decimal" placeholder="0"></div></div>'+
@@ -5151,7 +5151,7 @@ function openSettings(){
     '<div class="tiny muted" style="font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin:14px 0 8px">Custom daily reminders</div>'+
     ((S.reminders&&S.reminders.length)
       ? S.reminders.map(function(r){ return '<div class="listrow"><span class="small">'+esc(r.label)+' <span class="muted num">· '+r.time+(r.date?' · once on '+fmtD(r.date):' daily')+'</span></span><button class="btn ghost sm danger" onclick="delReminder(\''+r.id+'\')">✕</button></div>'; }).join('')
-      : '<p class="tiny muted" style="margin-bottom:6px">e.g. “Creatine” at 09:00, “Casein shake” at 22:45, “Stretch break” at 17:00</p>')+
+      : '<p class="tiny muted" style="margin-bottom:6px">e.g. "Creatine" at 09:00, "Casein shake" at 22:45, "Stretch break" at 17:00</p>')+
     '<div class="field" style="margin:8px 0 0"><input id="remLabel" placeholder="Reminder name"></div>'+
     '<div class="row" style="margin:8px 0 12px"><input id="remTime" type="time" value="09:00" style="max-width:120px"><input id="remDate" type="date" style="max-width:160px" title="leave empty for daily"><button class="btn sm" onclick="addReminder()">Add</button></div>'+
     '<p class="tiny muted" style="margin:-6px 0 12px">Leave the date empty for a daily reminder; set it for a one-time reminder.</p>'+
@@ -5189,7 +5189,7 @@ function aboutSheet(){
   openSheet('<h3>About Fitness Buddy</h3>'+
     '<p class="small" style="color:var(--ink2); line-height:1.6">Version '+APP_VER+' · a personal health coach that lives entirely on your phone.</p>'+
     '<div class="tiny muted" style="font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin:14px 0 6px">Privacy</div>'+
-    '<p class="small" style="color:var(--ink2); line-height:1.6">All of your data (workouts, food, weight, photos, everything) is stored only in this device’s browser storage. Fitness Buddy has no accounts, no servers, no analytics, and never transmits your data anywhere. Backups exist only as files you export yourself. <a href="privacy.html" target="_blank" rel="noopener">Full privacy policy</a></p>'+
+    '<p class="small" style="color:var(--ink2); line-height:1.6">All of your data (workouts, food, weight, photos, everything) is stored only in this device's browser storage. Fitness Buddy has no accounts, no servers, no analytics, and never transmits your data anywhere. Backups exist only as files you export yourself. <a href="privacy.html" target="_blank" rel="noopener">Full privacy policy</a></p>'+
     '<div class="tiny muted" style="font-weight:700; letter-spacing:.07em; text-transform:uppercase; margin:14px 0 6px">Disclaimer</div>'+
     '<p class="small" style="color:var(--ink2); line-height:1.6">Fitness Buddy provides general fitness and nutrition information, not medical advice. Consult a qualified physician before starting any exercise or diet program, especially with an injury, medical condition, or pregnancy. Stop any exercise that causes pain.</p>'+
     '<p class="tiny muted" style="margin-top:14px">Contact: malay@growleads.io</p>');
@@ -5298,7 +5298,7 @@ setInterval(function(){
     if(hm===st.workoutRemind && !S.sessions.some(function(s){return s.date===today();})){
       wkRemindedOn=today();
       const prt=todaysPlanRoutine();
-      notify('Workout time 🏋️', prt? 'Today’s plan: '+prt.name : 'You planned to train at '+st.workoutRemind, true);
+      notify('Workout time 🏋️', prt? 'Today's plan: '+prt.name : 'You planned to train at '+st.workoutRemind, true);
     }
   }
 }, 30000);
@@ -5309,7 +5309,7 @@ function obStart(){
   openSheet('<div style="text-align:center; padding:16px 4px">'+
     '<img src="icon.svg" alt="" style="width:76px; height:76px; border-radius:18px" onerror="this.style.display=\'none\'">'+
     '<div style="font-family:var(--fd-disp); font-weight:700; font-size:30px; margin-top:12px">Fitness Buddy</div>'+
-    '<div class="serifacc" style="font-size:20px; color:var(--ink2)">Show up. I’ll count.</div>'+
+    '<div class="serifacc" style="font-size:20px; color:var(--ink2)">Show up. I'll count.</div>'+
     '<p class="small" style="color:var(--ink2); margin:18px 0 22px; line-height:1.55">Your workouts, food, water, sleep and body, coached from one place. Everything stays on this phone. Two minutes of setup.</p>'+
     '<button class="btn primary wide" onclick="obProfile()">Set me up</button></div>');
 }
