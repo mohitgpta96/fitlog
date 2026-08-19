@@ -477,7 +477,7 @@ const DEF_EX=[
   ['Standing hamstring fold','Mobility'],['Shoulder dislocates (stick)','Mobility'],['Dead hang','Mobility'],
   ['Cossack squat','Mobility'],['Thoracic rotations','Mobility'],['Ankle rocks','Mobility'],['Glute bridge','Mobility'],
   ['Burpees','Conditioning'],['Mountain climbers','Conditioning'],['Jumping jacks','Conditioning'],
-  ['High knees','Conditioning'],['Kettlebell swing','Conditioning'],['Farmer's carry','Conditioning'],
+  ['High knees','Conditioning'],['Kettlebell swing','Conditioning'],"Farmer's carry",'Conditioning'],
   ['Bear crawl','Conditioning'],['Broad jump','Conditioning'],
   ['Rowing (erg)','Cardio'],['SkiErg','Cardio'],
   /* VO2max intervals, one per modality: bike km and SkiErg metres are not
@@ -1223,55 +1223,55 @@ function closeSheet(){
 
 /* ============ daily quote + coach fact ============ */
 const QUOTES=[
-'You don't have to be extreme, just consistent.',
-'Discipline is choosing what you want most over what you want now.',
-'A one-hour workout is 4% of your day.',
-'It never gets easier. You get stronger.',
-'Little by little, a little becomes a lot.',
-'You are one workout away from a better mood.',
-'Motivation gets you started. Habit keeps you going.',
-'Take care of your body. It's the only place you have to live.',
-'Slow progress is still progress.',
-'The best project you'll ever work on is you.',
-'Fall in love with the process and the results will come.',
-'What seems impossible today will one day be your warm-up.',
-'Don't count the days. Make the days count.',
-'Showing up is the whole battle.',
-'Rest days build muscle. Guilt builds nothing.',
-'Compare only with yesterday's you.',
-'A river cuts through rock by persistence, not power.',
-'Your body hears everything your mind says.',
-'Strength is built in the reps you didn't feel like doing.',
-'Energy creates energy. Start moving.',
-'The wedding photos are being taken now, in the gym.',
-'Trust the boring weeks. They're the ones that work.',
-'Your future self is watching through your memories.',
-'Champions train. Everyone else waits for motivation.'];
+`You don't have to be extreme, just consistent.`,
+`Discipline is choosing what you want most over what you want now.`,
+`A one-hour workout is 4% of your day.`,
+`It never gets easier. You get stronger.`,
+`Little by little, a little becomes a lot.`,
+`You are one workout away from a better mood.`,
+`Motivation gets you started. Habit keeps you going.`,
+`Take care of your body. It's the only place you have to live.`,
+`Slow progress is still progress.`,
+`The best project you'll ever work on is you.`,
+`Fall in love with the process and the results will come.`,
+`What seems impossible today will one day be your warm-up.`,
+`Don't count the days. Make the days count.`,
+`Showing up is the whole battle.`,
+`Rest days build muscle. Guilt builds nothing.`,
+`Compare only with yesterday's you.`,
+`A river cuts through rock by persistence, not power.`,
+`Your body hears everything your mind says.`,
+`Strength is built in the reps you didn't feel like doing.`,
+`Energy creates energy. Start moving.`,
+`The wedding photos are being taken now, in the gym.`,
+`Trust the boring weeks. They're the ones that work.`,
+`Your future self is watching through your memories.`,
+`Champions train. Everyone else waits for motivation.`];
 const TIPS=[
-'Creatine works by saturation, not timing. The daily tick matters more than the clock.',
-'Protein within ~2 hours after training gives a small but real edge.',
-'In Jaipur's dry heat you dehydrate without visible sweat. Sip before you feel thirsty.',
-'Muscle is built during sleep. The gym only sends the signal.',
-'A 10-minute walk after meals blunts the blood-sugar spike from rice and rotis.',
-'Chai without sugar saves ~45 kcal a cup, so three cups a day is a laddu a week.',
-'Grip fails before the back on deadlifts. Dead hangs fix both.',
-'Warm muscles stretch, cold muscles tear, so never stretch hard before warming up.',
-'Soreness is not the measure of a good workout. Progressive load is.',
-'Paneer or curd at dinner drip-feeds protein all night, like natural casein.',
-'Nasal breathing on easy runs builds your engine faster than harder mouth-breathing.',
-'Even 2% dehydration measurably costs you reps.',
-'The knee heals with pain-free motion, not rest alone.',
-'Three average workouts beat one heroic one, every single week.',
-'Caffeine within 8 hours of bed steals deep sleep even if you fall asleep fine.',
-'Photos every 2 weeks catch what the daily mirror hides.',
-'Goblet squats build the same legs as front squats without loading the wrists.',
-'Fibre from dal and sabzi keeps protein absorption steady. Thali wisdom is real.',
-'Late screens delay melatonin ~30 minutes. The 22:30 wind-down is physiology.',
-'A planned deload every 6–8 weeks makes you stronger, not weaker.',
-'Make the exhale longer than the inhale. That ratio, not the length, is what flips you into recovery.',
-'Wall balls test breathing more than muscles. That's why Hyrox loves them.',
-'Magnesium at night improves sleep quality. Watch your "woke rested" count.',
-'Volume drives muscle; intensity drives strength; consistency drives both.'];
+`Creatine works by saturation, not timing. The daily tick matters more than the clock.`,
+`Protein within ~2 hours after training gives a small but real edge.`,
+`In Jaipur's dry heat you dehydrate without visible sweat. Sip before you feel thirsty.`,
+`Muscle is built during sleep. The gym only sends the signal.`,
+`A 10-minute walk after meals blunts the blood-sugar spike from rice and rotis.`,
+`Chai without sugar saves ~45 kcal a cup, so three cups a day is a laddu a week.`,
+`Grip fails before the back on deadlifts. Dead hangs fix both.`,
+`Warm muscles stretch, cold muscles tear, so never stretch hard before warming up.`,
+`Soreness is not the measure of a good workout. Progressive load is.`,
+`Paneer or curd at dinner drip-feeds protein all night, like natural casein.`,
+`Nasal breathing on easy runs builds your engine faster than harder mouth-breathing.`,
+`Even 2% dehydration measurably costs you reps.`,
+`The knee heals with pain-free motion, not rest alone.`,
+`Three average workouts beat one heroic one, every single week.`,
+`Caffeine within 8 hours of bed steals deep sleep even if you fall asleep fine.`,
+`Photos every 2 weeks catch what the daily mirror hides.`,
+`Goblet squats build the same legs as front squats without loading the wrists.`,
+`Fibre from dal and sabzi keeps protein absorption steady. Thali wisdom is real.`,
+`Late screens delay melatonin ~30 minutes. The 22:30 wind-down is physiology.`,
+`A planned deload every 6–8 weeks makes you stronger, not weaker.`,
+`Make the exhale longer than the inhale. That ratio, not the length, is what flips you into recovery.`,
+`Wall balls test breathing more than muscles. That's why Hyrox loves them.`,
+`Magnesium at night improves sleep quality. Watch your "woke rested" count.`,
+`Volume drives muscle; intensity drives strength; consistency drives both.`];
 function dayIdx(){ return Math.floor(new Date(today()+'T12:00:00').getTime()/86400000); }
 
 /* ============ warm-up / cool-down protocols ============ */
@@ -1298,7 +1298,7 @@ const PROTO_ALIASES=[
   ['cat-cow','Cat-cow'],
   ['dead bugs','Straight-leg raise'],
   ['cobra','Downward dog to cobra'],
-  ['child's pose','Downward dog to cobra'],
+  ["child's pose",'Downward dog to cobra'],
   ['leg swings','Straight-leg raise'],
   ['push-ups','Push-ups'],
   ['arm circles','Shoulder dislocates (stick)'],
@@ -1325,7 +1325,7 @@ function protoList(txt){
 }
 const CD_BY_GROUP={
   Chest:'Doorway chest stretch 40s/side',
-  Back:'Lat stretch on the rack 40s/side · child's pose 45s',
+  Back:`Lat stretch on the rack 40s/side · child's pose 45s`,
   Legs:'Quad, hamstring and couch stretch 45s each',
   Shoulders:'Cross-body stretch 30s/side',
   Arms:'Wrist flexor stretch 30s/side, protect that wrist',
@@ -1559,7 +1559,7 @@ function prescribe(exId){
   if(tmd){
     const b=Math.max.apply(null,last.sets.map(function(s){return +s.r||0;}));
     const rdT=readiness();
-    if(rdT.hold) return {sets:mk('', b), why:'match last time's '+b+'s rather than pushing it: '+rdT.reasons[0], tag:'hold', readiness:rdT};
+    if(rdT.hold) return {sets:mk('', b), why:'match last time\'s '+b+'s rather than pushing it: '+rdT.reasons[0], tag:'hold', readiness:rdT};
     if(last.sets.some(function(s){ return s.e==='hard'; }))
       return {sets:mk('', b), why:'last hold felt hard, so repeat '+b+'s clean before adding time', tag:'reps'};
     /* same doubling rule the weighted branch uses when every set felt easy */
@@ -1652,7 +1652,7 @@ const CUES={
   'Wall balls':'It is a squat plus a push, not an arm throw; hit the same spot every rep.',
   'Kettlebell swing':'A hip hinge, not a squat; arms are ropes; the hips snap, the glutes finish.',
   'Burpee broad jump':'Land soft with bent knees; step back instead of jumping back while the wrists heal.',
-  'Farmer's carry':'Tall posture, packed shoulders, quick small steps; tight grip, neutral wrists.',
+  "Farmer's carry":'Tall posture, packed shoulders, quick small steps; tight grip, neutral wrists.',
   'Walking':'Nasal breathing only: recovery and aerobic engine in one.',
   'Treadmill run':'Easy pace, nasal breathing where possible; land soft, feet under the hips.',
   'Running (outdoor)':'Conversational pace; short quick steps, land under your hips, breathe through the nose on easy runs.',
@@ -1829,7 +1829,7 @@ Object.assign(PATTERNS, {
     '<polyline points="80,86 62,104" class="fs"/>'+
     '<polyline points="80,86 100,100 96,110" class="fs"/>'+
     '<polyline points="150,70 176,70" class="fa"/><polyline points="168,64 178,70 168,76" class="fa"/>'},
-  exwgs:{label:'World's greatest stretch: deep lunge, then open the chest', svg:
+  exwgs:{label:`World's greatest stretch: deep lunge, then open the chest`, svg:
     '<polyline points="46,110 62,80" class="fs"/>'+
     '<polyline points="62,80 92,110" class="fs"/>'+
     '<circle cx="62" cy="66" r="6" class="fs"/>'+
@@ -5464,5 +5464,4 @@ if(S.settings.hiit){
 }
 hiReset();
 renderToday();
-  if(window.__bootOK) window.__bootOK();
 </script>
